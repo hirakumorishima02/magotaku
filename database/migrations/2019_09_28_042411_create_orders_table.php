@@ -15,7 +15,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('item');
+            $table->integer('orderer_id');
+            $table->integer('contractor_id')->unsigned()->nullable();
+            $table->integer('apple');
+            $table->integer('onion');
+            $table->integer('rice');
+            $table->integer('tomato');
+            $table->integer('beaf');
+            $table->integer('fish');
+            $table->integer('status'); // 1 -> 受注ずみ / 2-> 宅配完了
             $table->timestamps();
         });
     }

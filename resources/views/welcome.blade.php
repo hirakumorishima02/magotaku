@@ -20,36 +20,67 @@
     </head>
     <body>
     <div class="row center">
-      <div class="col s6 m4"><img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="100%" height="100%">
-          <button>注文</button>
+    {{Form::open(['url' => '/order'])}}
+    {{Form::token()}}
+      <div class="col s6 m4">
+          <img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="80%" height="80%" />
+          {{Form::select('apple', ['注文しない', '注文する'], null, ['class' => 'select'])}}
+          {{Form::label('apple', 'リンゴ')}}
       </div>
-      <div class="col s6 m4"><img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="100%" height="100%">
-          <button>注文</button>
+      <div class="col s6 m4">
+          <img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="80%" height="80%" />
+          {{Form::select('onion', ['注文しない', '注文する'], null, ['class' => 'select'])}}
+          {{Form::label('onion', '玉ねぎ')}}
       </div>
-      <div class="col s6 m4"><img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="100%" height="100%">
-          <button>注文</button>
+      <div class="col s6 m4">
+          <img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="80%" height="80%" />
+          {{Form::select('rice', ['注文しない', '注文する'], null, ['class' => 'select'])}}
+          {{Form::label('rice', 'お米')}}
       </div>
-      <div class="col s6 m4"><img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="100%" height="100%">
-          <button>注文</button>
+      <div class="col s6 m4">
+          <img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="80%" height="80%" />
+          {{Form::select('tomato', ['注文しない', '注文する'], null, ['class' => 'select'])}}
+          {{Form::label('tomato', 'トマト')}}
       </div>
-      <div class="col s6 m4"><img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="100%" height="100%">
-          <button>注文</button>
+      <div class="col s6 m4">
+          <img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="80%" height="80%" />
+          {{Form::select('beaf', ['注文しない', '注文する'], null, ['class' => 'select'])}}
+          {{Form::label('beaf', '牛肉')}}
       </div>
-      <div class="col s6 m4"><img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="100%" height="100%">
-          <button>注文</button>
+      <div class="col s6 m4">
+          <img src="img/food.jpg" name="foodImg" decoding="async" loading="lazy" width="80%" height="80%" />
+          {{Form::select('fish', ['注文しない', '注文する'], null, ['class' => 'select'])}}
+          {{Form::label('fish', '魚')}}
       </div>
-      
+      {{Form::submit()}}
+      {{Form::close()}}
     </div>
     <div class="row orders-list">
         <h3 class="center">注文一覧</h3>
         <ul class="col s12 offset-s2">
-            <li>ほしいもの：リンゴ・きゅうり・キャベツ<button>受注</button></li>
-            <li>ほしいもの：なす・なし・ポン酢<button>受注</button></li>
-            <li>ほしいもの：カレー粉・鶏肉・玉ねぎ<button>受注</button></li>
-            <li>ほしいもの：にんじん・切り干し大根・醤油<button>受注</button></li>
+            <li>
+                @foreach($orders as $order)
+                    {{Form::open(['url' => '/getOrder'])}}
+                    {{Form::token()}}
+                    ほしいもの：
+                        @if($order->apple == 1)リンゴ @endif
+                        @if($order->onion == 1) 玉ねぎ   @endif
+                        @if($order->rice == 1) お米 @endif
+                        @if($order->tomato == 1) トマト @endif
+                        @if($order->beaf == 1) 牛肉 @endif
+                        @if($order->fish == 1) お魚 @endif
+                    {{Form::hidden('order_id', $order->id)}}
+                    {{Form::submit('受注')}}
+                    {{Form::close()}}
+                @endforeach
+            </li>
         </ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+            var select = document.querySelectorAll('select');
+            M.FormSelect.init(select);
+    </script>
     </body>
     
 </html>
