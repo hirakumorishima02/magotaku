@@ -26,7 +26,7 @@ class OrderController extends Controller
         $order->save();
         
         $orders = Orders::where('status', 1)->get();
-        return view('welcome',compact('orders'));
+        return redirect('/home')->with('orders', $orders);
     }
     
     public function getOrder(Request $request) {
@@ -35,6 +35,14 @@ class OrderController extends Controller
         $order->status = 2;
         $order->save();
 
-       return redirect('/home');
+        return redirect('/home');
     }
+    
+    public function deleteOrder(Request $request) {
+        $order = Orders::where('id', $request->order_id)->first();
+        $order->delete();
+
+        return redirect('/home');
+    }
+    
 }

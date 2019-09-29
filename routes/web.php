@@ -14,3 +14,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::post('/order', 'OrderController@order');
 Route::post('/getOrder', 'OrderController@getOrder');
+Route::post('/deleteOrder', 'OrderController@deleteOrder');
