@@ -64,12 +64,12 @@
             <img src="img/slider1.jpg" class="slider1" decoding="async" loading="lazy"> <!-- random image -->
             <div class="caption center-align slide-text">
             <h3 style='margin-top: 0;'>まごたく。って？</h3>
-                <p style='color: #ef5350;'>大学生は買い物に行くのに苦労するお年寄りの代わりに
+                <p style='color: white;'>大学生は買い物に行くのに苦労するお年寄りの代わりに
                 買って来て欲しいものを届けるという宅配サービスです。</p>
-                <p style='color: #ef5350;'>ご年配の方で免許返納、足腰が悪い方のために、
+                <p style='color: white;'>ご年配の方で免許返納、足腰が悪い方のために、
                 近くに住んでいる方が買い物に行く「ついで」に食材を届けることができます。</p>
-                <p style='color: #ef5350;'>ご高齢の方が介護施設に入らなければならない理由として、食材の買い出しができないという点が挙げられます。
-                <p style='color: #ef5350;'>健康的な面で外出できなかったり、自動車免許を返納したことによって遠出できなかったりする
+                <p style='color: white;'>ご高齢の方が介護施設に入らなければならない理由として、食材の買い出しができないという点が挙げられます。
+                <p style='color: white;'>健康的な面で外出できなかったり、自動車免許を返納したことによって遠出できなかったりする
                 高齢者を支援したい。そんな気持ちで生まれたサービスです。</p>
             </div>
           </li>
