@@ -18,3 +18,11 @@ img {
 .foodImg {
     border-radius: 5%;
 }
+
+.slide-text > h3 {
+    color: #ef5350;
+}
+.slide-text > p {
+    font-weight: bold;
+    color: #ef5350;
+}

@@ -26,11 +26,11 @@
                   <ul id="nav-mobile" class="right hide-on-med-and-down">
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                                 </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規会員登録') }}</a>
                                 </li>
                             @endif
                             @else
@@ -44,7 +44,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('ログアウト') }}
                                     </a>
     
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -62,23 +62,15 @@
         <ul class="slides">
           <li>
             <img src="img/slider1.jpg" class="slider1" decoding="async" loading="lazy"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>Welcome to Your Home Lawn Care Provider!</h3>
-              <h5 class="light grey-text text-lighten-3">High Quality</h5>
-            </div>
-          </li>
-          <li>
-            <img src="img/slider2.jpg"> <!-- random image -->
-            <div class="caption left-align" decoding="async" loading="lazy">
-              <h3>More than the price</h3>
-              <h5 class="light grey-text text-lighten-3">Reasonable Price</h5>
-            </div>
-          </li>
-          <li>
-            <img src="img/slider3.jpg" decoding="async" loading="lazy"> <!-- random image -->
-            <div class="caption right-align">
-              <h3>Agile lawn mowing</h3>
-              <h5 class="light grey-text text-lighten-3">Stress-free waiting time</h5>
+            <div class="caption center-align slide-text">
+            <h3 style='margin-top: 0;'>まごたく。って？</h3>
+                <p style='color: #ef5350;'>大学生は買い物に行くのに苦労するお年寄りの代わりに
+                買って来て欲しいものを届けるという宅配サービスです。</p>
+                <p style='color: #ef5350;'>ご年配の方で免許返納、足腰が悪い方のために、
+                近くに住んでいる方が買い物に行く「ついで」に食材を届けることができます。</p>
+                <p style='color: #ef5350;'>ご高齢の方が介護施設に入らなければならない理由として、食材の買い出しができないという点が挙げられます。
+                <p style='color: #ef5350;'>健康的な面で外出できなかったり、自動車免許を返納したことによって遠出できなかったりする
+                高齢者を支援したい。そんな気持ちで生まれたサービスです。</p>
             </div>
           </li>
         </ul>
@@ -91,7 +83,12 @@
               <div class="collapsible-header"><i class="material-icons">local_taxi</i>学生の方</div>
                 <div class="collapsible-body">
                   <span>
-                      aaa
+                      <ol>
+                          <li>新規会員登録をしてください。</li>
+                          <li>「注文一覧」から届けるものを選び、「届ける」ボタンを押してください。</li>
+                          <li>注文された商品を購入し、届けてください。</li>
+                          <li>後日、自分の口座に500円の報酬と商品代金が振り込まれます。</li>
+                      </ol>
                   </span>
                 </div>
             </li>
@@ -99,7 +96,11 @@
               <div class="collapsible-header"><i class="material-icons">home</i>注文希望の方</div>
                 <div class="collapsible-body">
                   <span>
-                      
+                      <ol>
+                          <li>新規会員登録をしてください。</li>
+                          <li>欲しいものの「注文しない」ボタンを「注文する」に変えてください。</li>
+                          <li>注文ボタンを押して届くのを待ちます。</li>
+                      </ol>
                   </span>
                 </div>
             </li>
@@ -143,6 +144,7 @@
         <button class="btn waves-effect waves-right order-btn" type="submit" name="action">注文</button>
       {{Form::close()}}
     </div>
+
     <div class="row orders-list">
         <h3 class="center">注文一覧</h3>
         <div class="col s10 offset-s1">
@@ -207,6 +209,38 @@
             </li>
         </div>
     </div>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">サイトメニュー</h5>
+            <ul>
+            @guest
+              <li><a class="grey-text text-lighten-3" href="{{ route('register') }}">{{ __('新規会員登録') }}</a></li>
+              <li><a class="grey-text text-lighten-3" href="{{ route('login') }}">{{ __('ログイン') }}</a></li>
+              <li><a class="grey-text text-lighten-3" href="/home">お問い合わせ</a></li>
+            @else
+              <li>
+                <a class="grey-text text-lighten-3" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('ログアウト') }}
+                </a>
+              </li>
+              <li><a class="grey-text text-lighten-3" href="/home">お問い合わせ</a></li>
+            @endguest
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2019 まごたく。
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
             var select = document.querySelectorAll('select');

@@ -26,6 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $orders = Orders::where('status','=', 1)->get();
-        return view('welcome',compact('orders'));
+        if(isset($orders)){
+            return view('welcome',compact('orders'));
+        }else{
+            return view('welcome');
+        }
+
     }
 }

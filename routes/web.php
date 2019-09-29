@@ -11,6 +11,7 @@
 |
 */
 Auth::routes();
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::post('/order', 'OrderController@order');
 Route::post('/getOrder', 'OrderController@getOrder');
