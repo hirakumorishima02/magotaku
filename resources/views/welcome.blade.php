@@ -83,6 +83,9 @@
               <div class="collapsible-header"><i class="material-icons">local_taxi</i>学生の方</div>
                 <div class="collapsible-body">
                   <span>
+                    <div class="video-container">
+                        <iframe width="853" height="480" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
                       <ol>
                           <li>新規会員登録をしてください。</li>
                           <li>「注文一覧」から届けるものを選び、「届ける」ボタンを押してください。</li>
@@ -96,6 +99,9 @@
               <div class="collapsible-header"><i class="material-icons">home</i>注文希望の方</div>
                 <div class="collapsible-body">
                   <span>
+                    <div class="video-container">
+                        <iframe width="853" height="480" src="https://www.youtube.com/watch?v=JPGkrTfrCxk&feature=youtu.be" frameborder="0" allowfullscreen></iframe>
+                    </div>
                       <ol>
                           <li>新規会員登録をしてください。</li>
                           <li>欲しいものの「注文しない」ボタンを「注文する」に変えてください。</li>
@@ -141,7 +147,7 @@
           {{Form::select('fish', ['注文しない', '注文する'], null, ['class' => 'select'])}}
           {{Form::label('fish', '魚')}}
       </div>
-        <button class="btn waves-effect waves-right order-btn" type="submit" name="action">注文</button>
+        <button class="btn waves-effect waves-right order-btn" type="submit" name="action" style='border-radius: 10px;'>注文</button>
       {{Form::close()}}
     </div>
 
